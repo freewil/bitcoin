@@ -32,7 +32,7 @@ unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
 uint256 hashGenesisBlock("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
+static CBigNum bnProofOfWorkLimit(~uint256(0) >> 15);
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -1072,7 +1072,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 }
 
 static const int64 nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-static const int64 nTargetSpacing = 10 * 60;
+static const int64 nTargetSpacing = 10;
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
